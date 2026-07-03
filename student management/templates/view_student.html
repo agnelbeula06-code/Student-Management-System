@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Students</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, Helvetica, sans-serif;
+            background:linear-gradient(to right,#4facfe,#8e44ad);
+        }
+
+        .container{
+            width:80%;
+            margin:40px auto;
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0px 0px 15px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:#4b0082;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#4b0082;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            text-align:center;
+            padding:10px;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:hover{
+            background:#f2f2f2;
+        }
+
+        .edit{
+            background:#28a745;
+            color:white;
+            padding:6px 12px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .delete{
+            background:#dc3545;
+            color:white;
+            padding:6px 12px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .back{
+            display:inline-block;
+            margin-top:20px;
+            background:#007bff;
+            color:white;
+            padding:10px 20px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .back:hover{
+            background:#0056b3;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Details</h2>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Roll Number</th>
+    <th>Action</th>
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student[0] }}</td>
+
+<td>{{ student[1] }}</td>
+
+<td>{{ student[2] }}</td>
+
+<td>
+
+<a href="/edit/{{ student[0] }}" class="edit">Edit</a>
+
+<a href="/delete/{{ student[0] }}" class="delete">Delete</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard" class="back">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+
+</html>
