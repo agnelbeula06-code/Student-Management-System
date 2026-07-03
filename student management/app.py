@@ -171,4 +171,5 @@ def delete(id):
     conn.close()
 
     return redirect("/view")
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
